@@ -15,7 +15,7 @@ int main()
     cin >> n;
     vector<int> x;
     x = Rec(0,1,n,x);
-    for(int i=0; i<x.size(); i++) {
+    for(unsigned long i=0; i<x.size(); i++) {
         cout << x.at(i) << " ";
     }
     cout << endl;
