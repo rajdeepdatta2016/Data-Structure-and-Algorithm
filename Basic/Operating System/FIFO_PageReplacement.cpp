@@ -12,7 +12,7 @@ bool findPage(int page, int *pages, int n) {
 }
 
 // Function to implement FIFO page replacement
-void fifoPageReplacement(int *pages, int n, int capacity) {
+void fifoPageReplacement(int pages[], int n, int capacity) {
     int frame[capacity];
     int pageFaults = 0;
     int currentSize = 0;
