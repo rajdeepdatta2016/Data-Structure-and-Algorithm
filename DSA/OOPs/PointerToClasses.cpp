@@ -27,6 +27,7 @@ class A
 int main()
 {
     A o;
+    // Dynamically Creating Objects...
     A *p = new A;
     p= &o;
     p->get();

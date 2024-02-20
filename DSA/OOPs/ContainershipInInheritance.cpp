@@ -2,10 +2,10 @@
 using namespace std;
 class A
 {
+    private:
     int a,b;
     public:
-    void get(int x, int y)
-    {
+    void get(int x, int y) {
         a=x;
         b=y;
     }
@@ -16,6 +16,7 @@ class A
 };
 class B
 {
+    private:
     int c,d;
     public:
     void get(int x, int y)
