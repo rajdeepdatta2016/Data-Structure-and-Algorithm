@@ -9,7 +9,7 @@ class Students {
     public:
 
     // Initialization List...
-    Students(int age, int rollNumber) : rollNumber(rollNumber), age(age), x(this->age) {}
+    Students(int age, int rollNumber) :age(age), rollNumber(rollNumber), x(this->age) {}
     void print() {
         cout << age << " " << rollNumber << " "<< x << endl;
     }
