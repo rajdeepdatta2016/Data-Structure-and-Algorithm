@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+
+// Driver Code...
 int main() {
     int n;
     cin >> n;
@@ -12,7 +14,7 @@ int main() {
         int current = arr[i];
         int j = i-1;
 
-        while(arr[j] > current && j>=0) {
+        while(current < arr[j] && j>=0) {
             arr[j+1] = arr[j];
             j--;
         }
@@ -23,3 +25,6 @@ int main() {
         cout << arr[i] << " ";
     }
 }
+
+// TC => O(n^2)...
+// SC => O(1)...
