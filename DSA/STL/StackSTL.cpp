@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<stack>
 using namespace std;
 int main() {
     stack<int> st;
@@ -8,7 +9,7 @@ int main() {
     st.push(3);         // {3, 3, 2, 1}
     st.push(5);         // {5, 3, 3, 2, 1}
 
-    cout << st.top() << endl;   // 5... "st[i] is invalid" / Indexing is not allowed...
+    cout << st.top() << endl;   // 5...     "st[i] is invalid" / Indexing is not allowed...
     st.pop();                   // {3, 3, 2, 1}
     cout << st.top() << endl;   // 3...
 
@@ -19,7 +20,9 @@ int main() {
     stack<int> st1;
     st1.swap(st);               // Swaping St1 with St...
     cout << st1.top() << endl;
-    cout << st.empty() << endl; // Because st is now empty...
+    cout << st.empty() << endl; // 1 (Because st is now empty)...
+    cout << "Size of Stack is = " << st1.size() << endl;
 }
 
 // Stack maintains LIFO (Last In First Out)...
+// All Operation Complexity = O(1)...

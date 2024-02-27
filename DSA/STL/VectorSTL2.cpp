@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 int main() {
     vector<int> num(5);
     for(int i=0; i<5; i++) cin >> num[i];
@@ -56,6 +57,9 @@ int main() {
     sort(vec3.begin(), vec3.end(), greater<int>());
     for(i=vec3.begin(); i != vec3.end(); i++) cout << *i << " ";
     cout << endl;
+
+    // Vector Copy by => vector<datatype> present_vec_name(copy_vec_name);
+    vector<int> last(vec3);
 
     // iterator
     // .begin()

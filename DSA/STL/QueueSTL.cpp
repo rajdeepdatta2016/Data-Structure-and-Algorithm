@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
 using namespace std;
 
 int main() {
@@ -13,7 +14,11 @@ int main() {
     q1.pop();                       // {20, 30, 40, 50}
     cout << q1.front() << endl;     // 20...
     cout << q1.back() << endl;      // 50...
+    if(q1.empty()) cout << "Queue is Empty" << endl;
+    else cout << "Queue is not Empty" << endl;
+    cout << "Size of Queue is = " << q1.size() << endl;
 }
 
 // Queue maintains FIFO (First In First Out)...
 // Size, swap, empty like Stack...
+// All Operation Complexity = O(1)...

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
 using namespace std;
 
 int main() {
@@ -16,6 +17,11 @@ int main() {
     pq.pop();                   // {21, 17, 13, 10, 9, 7, 3}
     cout << pq.top() << endl;   // 21
 
+    while(!pq.empty()) {
+        cout << pq.top() << " ";
+        pq.pop();
+    } cout << endl;
+
     // Minimum heap...
     priority_queue<int, vector<int>, greater<int> > pq1;
     pq1.push(2);                // {2}
@@ -26,6 +32,10 @@ int main() {
     cout << pq1.top() << endl;  // 1
     pq1.pop();                  // {2, 3, 7, 11}
     cout << pq1.top() << endl;  // 2
+    while(!pq1.empty()) {
+        cout << pq1.top() << " ";
+        pq1.pop();
+    } cout << endl;
 }
 
 // In Priority Queue, The Largest values stays on the top/start and the smallest value stays on the buttom/end.

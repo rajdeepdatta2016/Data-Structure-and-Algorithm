@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<map>
 using namespace std;
 
 int main() {
@@ -9,6 +10,16 @@ int main() {
     mp[1] = 2;                      // {{1, 2}}
     mp.insert(make_pair(3, 1));     // {{1, 2}, {3, 1}}
     mp.insert(make_pair(2, 4));     // {{1, 2}, {2, 4}, {3, 1}}
+    cout << "Finding 2 -> " << mp.count(2) << endl;
+    for(auto it : mp) {
+        cout << it.first << " " << it.second << endl;
+    }
+    mp.erase(3);                    // {{1, 2},{2, 4}}
+    for(auto it : mp) {
+        cout << it.first << " " << it.second << endl;
+    }
+    auto itr = mp.find(2);
+    cout << itr->second << endl;
 
     mp2[3] = make_pair(11, 5);      // {{3, {11, 5}}}
     mp2[7] = make_pair(6, 21);      // {{3, {11, 5}}, {7, {6, 21}}}
@@ -16,9 +27,6 @@ int main() {
     mp3[make_pair(3, 1)] = 10;      // {{{3, 1}, 10}}
     mp3[make_pair(11, 7)] = 71;     // {{{3, 1}, 10}, {{11, 7}, 71}}
 
-    for(auto it : mp) {
-        cout << it.first << " " << it.second << endl;
-    }
     for(auto it : mp2) {
         cout << it.first << " " << it.second.first << " " << it.second.second << endl; 
     }
@@ -33,4 +41,6 @@ int main() {
 }
 
 // Keys are always unique and sorted...
+// Stores in Sorted Order by Keys...
 // Values can be non-unique...
+// Map Operation Complexity => O(logn)...
