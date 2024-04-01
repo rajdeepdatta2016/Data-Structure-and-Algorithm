@@ -1,18 +1,27 @@
 #include<bits/stdc++.h>
-#include "Node.cpp"
 using namespace std;
+#include "Node.cpp"
 
-Node *reverseLinkedListRec(Node *head)
+Node *skipMdeleteN(Node *head, int M, int N)
 {
-	if(head == NULL || head->next == NULL) return head;
-	Node *newHead = reverseLinkedListRec(head->next);
-	Node* temp = newHead;
-    while(temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = head;
-    head->next = NULL;
-    return newHead;
+    if(M == 0) return NULL;
+	if(N == 0) return head;
+    Node * temp = head;
+	int x = M, y = N;
+	while(temp != NULL) {
+		if(x > 1) x--;
+		else if(y > 0) {
+            if(temp->next == NULL) break;
+			temp->next = temp->next->next;
+			y--;
+            continue;
+		} else {
+			x = M;
+			y = N;
+		}
+		temp = temp->next;
+	}
+	return head;
 }
 
 Node* takeInput() {
@@ -44,9 +53,8 @@ void print(Node * head) {
 
 int main() {
     Node* head = takeInput();
-    head = reverseLinkedListRec(head);
+    int m, n;
+    cin >> m >> n;
+    head = skipMdeleteN(head, m, n);
     print(head);
 }
-
-// TC => O(n^2)...
-// SC => O(1)...

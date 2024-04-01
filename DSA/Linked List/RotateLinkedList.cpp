@@ -1,18 +1,26 @@
 #include<bits/stdc++.h>
-#include "Node.cpp"
 using namespace std;
+#include "Node.cpp"
 
-Node *reverseLinkedListRec(Node *head)
-{
-	if(head == NULL || head->next == NULL) return head;
-	Node *newHead = reverseLinkedListRec(head->next);
-	Node* temp = newHead;
-    while(temp->next != NULL) {
-        temp = temp->next;
+Node *rotate(Node *head, int k) {
+    Node* tail = head;
+    Node* temp = head;
+    int count = 1, pos = 1;
+    while (tail->next != NULL) {
+      tail = tail->next;
+      count++;
     }
-    temp->next = head;
-    head->next = NULL;
-    return newHead;
+    if(k == count) return head;
+    if(k > count) k = k % count;
+    int change = count - k;
+    while(pos < change) {
+        temp = temp->next;
+        pos++;
+    }
+    tail->next = head;
+    head = temp->next;
+    temp->next = NULL;
+    return head;
 }
 
 Node* takeInput() {
@@ -44,9 +52,8 @@ void print(Node * head) {
 
 int main() {
     Node* head = takeInput();
-    head = reverseLinkedListRec(head);
+    int x;
+    cin >> x;
+    head = rotate(head, x);
     print(head);
 }
-
-// TC => O(n^2)...
-// SC => O(1)...

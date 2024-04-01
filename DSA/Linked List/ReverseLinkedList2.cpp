@@ -1,19 +1,6 @@
 #include<bits/stdc++.h>
-#include "Node.cpp"
 using namespace std;
-
-Node *reverseLinkedListRec(Node *head)
-{
-	if(head == NULL || head->next == NULL) return head;
-	Node *newHead = reverseLinkedListRec(head->next);
-	Node* temp = newHead;
-    while(temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = head;
-    head->next = NULL;
-    return newHead;
-}
+#include "Node.cpp"
 
 Node* takeInput() {
     int data;
@@ -42,11 +29,19 @@ void print(Node * head) {
     cout << endl;
 }
 
+Node * reverseLinkedListRec(Node* head) {
+    if(head == NULL || head->next == NULL) return head;
+    Node* smallhead = reverseLinkedListRec(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return smallhead;
+}
+
 int main() {
     Node* head = takeInput();
     head = reverseLinkedListRec(head);
     print(head);
 }
 
-// TC => O(n^2)...
-// SC => O(1)...
+// TC => O(n)...
+// TC => O(1)...

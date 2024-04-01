@@ -1,17 +1,31 @@
 #include<bits/stdc++.h>
-#include "Node.cpp"
 using namespace std;
+#include "Node.cpp"
 
-Node *reverseLinkedListRec(Node *head)
+Node *evenAfterOdd(Node *head)
 {
-	if(head == NULL || head->next == NULL) return head;
-	Node *newHead = reverseLinkedListRec(head->next);
-	Node* temp = newHead;
-    while(temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = head;
-    head->next = NULL;
+	Node* newHead = NULL;
+	Node* tail = NULL;
+	Node* temp = head;
+	while(temp != NULL) {
+		if(temp->data%2 == 1) {
+			Node* newNode = new Node(temp->data);
+			if(newHead == NULL) newHead = newNode;
+			else tail->next = newNode;
+			tail = newNode;
+		}
+		temp = temp->next;
+	}
+	temp = head;
+	while(temp != NULL) {
+		if(temp->data%2 == 0) {
+			Node* newNode = new Node(temp->data);
+			if(newHead == NULL) return head;
+			else tail->next = newNode;
+			tail = newNode;
+		}
+		temp = temp->next;
+	}
     return newHead;
 }
 
@@ -44,9 +58,6 @@ void print(Node * head) {
 
 int main() {
     Node* head = takeInput();
-    head = reverseLinkedListRec(head);
+    head = evenAfterOdd(head);
     print(head);
 }
-
-// TC => O(n^2)...
-// SC => O(1)...
